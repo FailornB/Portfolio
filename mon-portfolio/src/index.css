@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white text-gray-800 antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3 {
+    @apply text-gray-900;
+  }
+  a {
+    @apply text-purple-600 hover:underline;
+  }
+}
+
+@layer utilities {
+  .nav-link {
+    @apply relative inline-block text-gray-700 hover:text-purple-600 transition;
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 bottom-0 h-0.5 w-0 bg-purple-600 transition-all duration-300;
+  }
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+}
+
